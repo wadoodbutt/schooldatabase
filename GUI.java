@@ -1,21 +1,14 @@
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import javax.swing.text.Document;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.util.ArrayList;
+
 import java.util.Locale;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+
 /* This class creates the GUI for each interface. Each interface has a frame with a
  * button that leads to that frame. For example, the JFrame 'studentMenu' is accessible
  * through the 'studentDatabase' button.
@@ -56,6 +49,7 @@ public class GUI {
         c = new GridBagConstraints();
     }
 
+    // The interface for students that showcases their features (name, email, id, etc.)
     public void studentDatabaseInterface() {
         c = new GridBagConstraints();
         studentMenu.setSize(900, 405);
@@ -166,7 +160,7 @@ public class GUI {
         studentMenu.setVisible(true);
     }
 
-
+    // Interface that asks question (name, date of birth, age, etc.) to create a new student
     public void studentEnrollmentInterface() {
         JPanel panel = new JPanel(null);
         registerStudent.setSize(400,500);
@@ -360,7 +354,7 @@ public class GUI {
         registerStudent.setResizable(false);
         registerStudent.setVisible(true);
     }
-
+    // The interface that showcases teachers' features (name, email, classes taught, etc.)
     public void teacherDatabaseInterface() {
         c = new GridBagConstraints();
         teacherMenu.setSize(900, 405);
@@ -440,7 +434,7 @@ public class GUI {
         teacherMenu.setResizable(false);
         teacherMenu.setVisible(true);
     }
-
+    // Interface that asks question (name, date of birth, age, etc.) to create a new teacher
     public void teacherEnrollmentInterface() {
         JPanel panel = new JPanel(null);
         addTeacher.setSize(400,425);
@@ -589,7 +583,7 @@ public class GUI {
         addTeacher.setResizable(false);
         addTeacher.setVisible(true);
     }
-
+    // Interface that asks question (class name, class dates, credits, and time) to create a new class
     public void editCourseInterface() {
         JPanel formPanel = new JPanel(null);
         editCourses.getContentPane().add(formPanel);
@@ -776,7 +770,7 @@ public class GUI {
         editCourses.setSize(800,400);
         editCourses.setVisible(true);
     }
-
+    // Allows for student to register to available classes
     public void registrationInterface() {
         JPanel panel = new JPanel(null);
         registerClass.getContentPane().add(panel);
@@ -957,8 +951,7 @@ public class GUI {
         registerClass.setResizable(false);
         registerClass.setVisible(true);
     }
-
-
+    // Main menu
     public void mainInterface() {
         JPanel panel = new JPanel(new GridBagLayout());
         JLabel background = new JLabel(
@@ -1069,7 +1062,7 @@ public class GUI {
         mainMenu.setResizable(false);
         mainMenu.setVisible(true);
     }
-
+    // Registers teacher to class
     public void classTeacherRegistrationInterface() {
         JPanel panel = new JPanel(null);
         classTeacherRegistration.getContentPane().add(panel);
@@ -1257,31 +1250,8 @@ public class GUI {
         classTeacherRegistration.setResizable(false);
         classTeacherRegistration.setVisible(true);
     }
-
+    // Saves all data into a text file
     public void saveUserData() throws IOException {
-        /*String studentFile = "StudentData.bin";
-        FileOutputStream fosS = new FileOutputStream(studentFile);
-        ObjectOutputStream oosS = new ObjectOutputStream(fosS);
-        for (int i = 0; i < Student.numOfStudents; i++) {
-            oosS.writeObject(Student.directoryOfStudents[i]);
-        }
-        oosS.close();
-
-        String teacherFile = "TeacherData.bin";
-        FileOutputStream fosT = new FileOutputStream(teacherFile);
-        ObjectOutputStream oosT = new ObjectOutputStream(fosT);
-        for (int i = 0; i < Teacher.numOfTeachers; i++) {
-            oosT.writeObject(Teacher.directoryOfTeachers[i]);
-        }
-        oosT.close();
-
-        String classFile = "ClassData.bin";
-        FileOutputStream fosC = new FileOutputStream(teacherFile);
-        ObjectOutputStream oosC = new ObjectOutputStream(fosC);
-        for (int i = 0; i < Class.numOfClasses; i++) {
-            oosC.writeObject(Class.directoryOfClasses[i]);
-        }
-        oosC.close();*/
         File studentData = new File("schoolstudentdata.txt");
         FileWriter fw = new FileWriter(studentData, false);
         PrintWriter pw = new PrintWriter(fw, true);
