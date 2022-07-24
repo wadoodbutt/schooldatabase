@@ -43,11 +43,11 @@ public class Student implements Serializable {
                 listOfStudents[numOfStudents][index % 7] = student;
                 index++;
                 if (index % 7 == 0) {
-                   /* directoryOfStudents[numOfStudents] = new Student((String)listOfStudents[numOfStudents][1],
+                   directoryOfStudents[numOfStudents] = new Student((String)listOfStudents[numOfStudents][1],
                             (Integer) listOfStudents[numOfStudents][2], (String)listOfStudents[numOfStudents][3],
                             (String)listOfStudents[numOfStudents][4], (String)listOfStudents[numOfStudents][5],
                             (String)listOfStudents[numOfStudents][6]);
-                    //directoryOfStudents[numOfStudents].addClass();*/
+                    directoryOfStudents[numOfStudents].addClass();
                     numOfStudents++;
                 }
             }
